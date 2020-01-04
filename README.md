@@ -1,5 +1,6 @@
 # NewsToMe
 
+News scraper app using NewYorkTimes
 [Link To Deployed Site!](https://obscure-wave-51950.herokuapp.com/)
 
 ## Dependencies used
@@ -8,5 +9,3 @@
 * Express
 * Express-handlebars
 * Mongoose
-
-News scraper app using NewYorkTimes
