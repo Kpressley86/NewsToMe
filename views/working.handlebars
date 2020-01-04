@@ -1,0 +1,85 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" id="titleDiv">
+            <h1 id="title">News To Me SCRAPER</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" >
+            <a href="/" class="upper-link">HOME</a>
+            <button class="btn btn-primary btn-sm" id="scrapeBtn">SCRAPE</button>
+            <a href="https://www.nytimes.com" class="upper-link">NYTIMES.COM</a>
+        </div>
+    </div>
+    <hr class="white-underline">
+    <div class="row">
+        <a href="/">Home</a>
+        <div class="col-md-6" id="saved">
+            {{#each saved}}
+            <div class="article">
+                <h2 class="headline">{{headline}}</h2>
+                <ul>
+                    <li>{{summaryOne}}</li>
+                    <li>{{summaryTwo}}</li>
+                </ul>
+                <a href={{link}}>LINK TO FULL STORY</a>
+                <form action="/unsave" method="PUT" id="delete-article">
+                    <input type="hidden" name="id" value={{_id}}>
+                    <button class="btn btn-danger btn-sm" type="submit">DELETE</button>
+                    <hr />
+                </form>
+                <form action="/newnote" method="PUT"  id="new-note">
+                        <input type="hidden" value={{_id}}>
+                        <input type="name" class="form-control" id="message" >
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div id="noteDiv">
+                {{#each note}}
+                <p>{{this}}</p>
+                {{/each}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#new-note").on("submit", function (event) {
+            event.preventDefault();
+            console.log("new note");
+            var id = $(this).children().val();
+            var newNote = $("#message").val();
+            console.log(id);
+            console.log(newNote);
+            var data = {
+                _id: id,
+                note: newNote
+            }
+            console.log(data);
+            $.ajax({
+                type: "PUT",
+                url: "/newnote/",
+                data: data
+            })
+            location.reload();
+        $("#message").val("");
+        });
+        $("#delete-article").on("click", function (event) {
+            event.preventDefault();
+            console.log("delete it!");
+            var id = $(this).children().val();
+            console.log(id);
+            var data = {
+                _id: id
+            }
+            $.ajax("/unsave/" + id, {
+                type: "PUT",
+                data: data
+            })
+            location.reload();
+
+        });
+        
+    });
+</script>

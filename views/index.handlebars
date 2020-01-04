@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" id="titleDiv">
+            <h1 id="title">News To Me SCRAPER</h1>
+        </div>
+    </div>
+    <div class="row" class="linkRow">
+        <div class="col-md-4">
+            <a href="/saved" class="upper-link">SAVED ARTICLES</a>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-sm" id="scrapeBtn">SCRAPE</button>
+        </div>
+        <div class="col-md-4">
+            <a href="https://www.nytimes.com" class="upper-link">NYTIMES.COM</a>
+        </div>
+    </div>
+
+    <hr class="white-underline">
+    <div class="row">
+        {{#each result}}
+        {{#unless saved}}
+        <div class="col-md-6">
+
+            <div class="article">
+                <h2 class="headline">{{headline}}</h2>
+                <ul>
+                    <li class="summary">{{summaryOne}}</li>
+                    <li class="summary">{{summaryTwo}}</li>
+                </ul>
+                <hr>
+                <div class="row" id="bottom-row">
+                    <div class="col-md-6">
+                        <a href={{link}} class="link">LINK TO FULL STORY</a>
+                    </div>
+                    <div class="col-md-6">
+                        <form action="/update" method="PUT" id="save-article">
+                            <input type="hidden" name="id" value={{_id}}>
+                            <button class="btn btn-lg" id="saveBtn" type="submit">SAVE ARTICLE</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {{/unless}}
+        {{/each}}
+    </div>
+</div>
+
+
+
+
+<script>
+    $(document).ready(function () {
+
+        $("#scrapeBtn").on("click", function (event) {
+            event.preventDefault();
+            $.get("/newscrape", function (data) {
+                location.reload();
+            });
+        });
+
+        $("#save-article").on("click", function (event) {
+            event.preventDefault();
+            console.log("save it!");
+            var id = $(this).children().val();
+            console.log(id);
+            var data = {
+                _id: id
+            }
+            $.ajax("/update/" + id, {
+                type: "PUT",
+                data: data
+            })
+            location.reload();
+        });
+    });
+</script>

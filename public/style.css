@@ -1,0 +1,175 @@
+body {
+    background-color: rgb(87, 87, 87);
+    font-family: "Roboto", monospace;
+
+}
+
+.linkRow {
+    text-align: center;
+    margin-bottom: 40px;
+}
+#title {
+    font-family: "Noto Serif", serif;
+    font-size: 7rem;
+    color: rgb(243, 243, 235);
+    text-shadow: 3px 3px rgb(0, 61, 80);
+    text-align: center;
+    padding-top: 30px;
+    margin-bottom: 35px;
+    font-weight: bold;
+}
+
+#save-article {
+    text-align: right;
+    margin-right: 30px;
+    bottom: 10px;
+}
+
+#delete-article {
+    text-align: right;
+    margin-right: 30px;
+    bottom: 10px;
+}
+
+li {
+    text-align: justify;
+}
+
+#id {
+    text-align: center;
+}
+
+.article {
+    margin-bottom: 25px;
+    margin-top: 25px;
+    padding: 10px;
+    color: rgb(29, 29, 27);
+    background-color: rgb(243, 243, 235);
+    border-radius: 3px;
+    min-height: 600px;
+    font-size: 1.25rem;
+}
+
+#scrapeBtn {
+    text-align: center;
+    width: 300px;
+    height: 45px;
+    border-radius: 5px;
+    background-color: rgb(0, 61, 80);
+    color: rgb(107, 107, 107);
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1.25rem;
+}
+
+#saveBtn {
+    text-align: center;
+    background-color: rgb(0, 61, 80);
+    color: rgb(250, 250, 250);
+    font-weight: bolder;
+}
+
+#saveBtn:hover {
+    color: white;
+    background-color: rgb(0, 165, 216);
+}
+
+#scrapeBtn:hover {
+    background-color: rgb(127, 215, 241);
+}
+
+#deleteBtn {
+    text-align: center;
+    background-color: rgb(255, 99, 120);
+    color: rgb(250, 250, 250);
+    font-weight: bolder;
+}
+
+#deleteBtn:hover {
+    color: white;
+    background-color:rgb(224, 0, 30);
+}
+
+.headline {
+    font-family: "Noto Serif", serif;
+    font-size: 2.75rem;
+    margin-bottom: 35px;
+    margin-left: 15px;
+    font-weight: bolder;
+}
+
+.upper-link {
+    color: rgb(0, 61, 80);
+    font-size: 1.5rem;   
+    margin: auto;
+}
+
+.upper-link:hover {
+    color: rgb(165, 234, 255);
+}
+
+.link {
+    color: rgba(29, 29, 27, 0.5);
+    font-size: 1.5rem;
+    margin-left: 15px;
+}
+
+.link:hover {
+    color: rgb(29, 29, 27);    
+}
+
+a:hover {
+    text-decoration: none;    
+    color: rgb(184, 234, 250);
+}
+
+.summary {
+    margin-left: 0;
+    margin-right: 25px;
+    text-align: justify;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    line-height: 1.5rem;
+}
+
+#new-note {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#message {
+    margin-bottom: 15px;
+    height: 100px;
+}
+
+#noteBtn {
+    text-align: center;
+    background-color: rgb(0, 61, 80);
+    color: rgb(243, 243, 235);
+    font-weight: bolder;
+}
+
+#noteBtn:hover {
+    background-color: rgb(105, 195, 223);
+}
+
+#new-note {
+    text-align: right;
+}
+
+.savedHeader {
+    font-family: "Noto Serif", serif;
+    font-weight: bold;
+}
+
+#savedTop {
+    text-align: center;    
+    color: rgb(0, 61, 80);
+    font-size: 1.75rem;
+    font-weight: bold;
+    letter-spacing: 1.25rem;
+}
+
+.col-md-4 {
+    text-align: center;
+}
